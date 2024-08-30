@@ -1,0 +1,232 @@
+.dashboard-container {
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.chat-container {
+    width: 70%;
+    height: 80%;
+    position: relative;
+    border: 1px solid rgba(0, 0, 0, 0.692);
+    border-radius: 18px 0 0 18px;
+    overflow: hidden;
+    display: grid;
+    grid-template-rows: auto 1fr auto; /* Header, Messages, Input */
+    grid-template-columns: 1fr;
+    justify-content: center;
+}
+
+.chat-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../images/chat-background-image.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    filter: blur(3px);
+    z-index: -1;
+}
+
+.online-members {
+    width: 20%;
+    height: 76.5%;
+    background-color: rgb(50, 51, 51);
+    position: relative;
+    border-radius: 0 18px 18px 0;
+    border: 1px solid rgba(0, 0, 0, 0.692);
+    color: azure;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+.header {
+    grid-row: 1;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgba(0, 0, 0, 0.692);
+    border-radius: 18px 0 0 0;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.messages-container {
+    grid-row: 2;
+    display: flex;
+    flex-direction: column; 
+    overflow-y: auto; 
+    padding: 1rem;
+    box-sizing: border-box;
+    height: 100%; 
+}
+
+.input-container {
+    grid-row: 3;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgba(0, 0, 0, 0.692);
+    border-radius: 0 0 0 18px;
+    display: flex;
+    align-items: center;
+    padding: 0 1rem;
+    box-sizing: border-box;
+}
+
+.input-container input {
+    width: 80%;
+    height: 3rem;
+    border: 1px solid rgba(0, 0, 0, 0.692);
+    border-radius: 0.5rem;
+    padding: 0 1rem;
+    box-sizing: border-box;
+    color: black;
+}
+.input-container input::placeholder {
+   
+    padding: 0 1rem;
+    box-sizing: border-box;
+    color: black;
+}
+
+.input-container button {
+    width: 15%;
+    height: 3rem;
+    margin-left: 1rem;
+    background-color: rgb(0, 122, 255);
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.input-container button:hover {
+    background-color: rgb(0, 102, 204);
+}
+
+/* Message Styles */
+.message {
+    padding: .1rem;
+    margin: 4px;
+    border-radius: 10px 10px 0px 10px;
+    max-width: 80%;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(14, 128, 221, 0.603);
+}
+
+.message.user {
+    background-color: rgba(0, 123, 255, 0.658);
+    color: white;
+    align-self: flex-end;
+    text-align: right;
+    border-radius: 10px 10px 10px 0;
+}
+
+.message.system {
+    background-color: rgb(129, 129, 129);
+    color: white;
+    align-self: flex-start;
+    text-align: left;
+    border-radius: 10px 10px 0 10px;
+}
+
+
+/* Message Notification Styles */
+.message-notification {
+    padding: 1rem;
+    margin: 4px;
+    border-radius: 10px;
+    background-color: #f0f0f0; /* Light gray background for notifications */
+    color: #333; /* Darker text color for contrast */
+    font-weight: bold;
+    text-align: center;
+    border: 1px solid #ddd; /* Light border for subtle distinction */
+}
+
+/* .message-notification {
+    background-color: #e0ffe0;
+    border: 1px solid #d0f0d0; 
+} */
+
+
+
+/* Message Styles Adjustments */
+.message {
+    padding: 1rem;
+    margin: 4px;
+    border-radius: 10px;
+    max-width: 80%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+/* Add this to existing message styles for proper spacing */
+.message.user-message {
+    background-color: rgba(0, 123, 255, 0.808);
+    color: white;
+    align-self: flex-end;
+    text-align: right;
+    border-radius: 10px 10px 10px 0;
+}
+
+.message.other-message {
+    background-color: rgb(255, 255, 255);
+    color: black;
+    align-self: flex-start;
+    text-align: left;
+    border-radius: 10px 10px 0 10px;
+}
+
+
+/* Username and timestamp styles */
+.message-username {
+    font-size: 12px;
+    font-weight: 700;
+    color: purple;
+}
+
+.message-text {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.message-timestamp {
+    font-size: 12px;
+    font-weight: 600;
+    color: rgb(139, 131, 131);
+}
+.message-notification{
+    border: none;;
+    background-color: transparent;
+}
+
+
+/* Scrollbar Styles */
+.messages-container::-webkit-scrollbar {
+    width: 8px; 
+    height: 8px;
+}
+
+.messages-container::-webkit-scrollbar-track {
+    background: #bbbbbb; 
+    border-radius: 10px; 
+}
+
+.messages-container::-webkit-scrollbar-thumb {
+    background: #111111;
+    border-radius: 10px; 
+}
+
+.messages-container::-webkit-scrollbar-thumb:hover {
+    background: #ff0000a1; 
+}
